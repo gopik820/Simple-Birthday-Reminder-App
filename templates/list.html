@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ url_for('static', filename="img/favicon.ico") }}">
+
+    <title>Birthday Reminder</title>
+
+    <link href="{{ url_for('static', filename="css/bootstrap.min.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="css/ie10-viewport-bug-workaround.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="css/navbar.css") }}" rel="stylesheet">
+    <script "{{ url_for('static', filename="js/ie-emulation-modes-warning.js") }}"></script>
+
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="masthead">
+        <h3 class="text-muted">Birthday Reminder</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/list">Show Birthday</a></li>
+            <li><a href="/add">Add birthday</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="row">
+        <div class="container">
+
+          <center>
+          <h1>Results ({{len}}) </h1>
+          </center>
+
+         <table class="table">
+           <thead>
+             <tr>
+               <th></th>
+               <th>Name</th>
+               <th>Birthday</th>          
+             </tr>
+           </thead>
+          {% for i in data %}
+           <tbody>
+             <tr>
+               <th scope="row"></th>
+               <td>{{i[0]}}</td>
+               <td>{{i[1]}}</td>
+             </tr>
+            </tbody>
+          {% endfor %}
+         </table>
+
+
+      
+
+    </div>
+      
+
+
+     
+    </div>
+    <script src="{{url_for('static', filename="js/ie10-viewport-bug-workaround.js") }}"></script>
+  </body>
+</html>
